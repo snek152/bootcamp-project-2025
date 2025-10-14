@@ -4,6 +4,7 @@ import {
   MusicalNoteIcon as MusicOutline,
   PhotoIcon as PhotoOutline,
   ChatBubbleOvalLeftEllipsisIcon as ChatIconOutline,
+  QueueListIcon as BlogOutline,
 } from "@heroicons/react/24/outline";
 import {
   UserCircleIcon as UserIconSolid,
@@ -11,6 +12,7 @@ import {
   MusicalNoteIcon as MusicSolid,
   PhotoIcon as PhotoSolid,
   ChatBubbleOvalLeftEllipsisIcon as ChatIconSolid,
+  QueueListIcon as BlogSolid,
 } from "@heroicons/react/24/solid";
 
 export type NavLink = {
@@ -50,5 +52,11 @@ export const navlinks: NavLink[] = [
     iconInactive: ChatIconOutline,
     href: "/contact",
     label: "Contact",
+  },
+  {
+    iconInactive: BlogOutline,
+    iconActive: BlogSolid,
+    href: "/blog.html",
+    label: "Blog",
   },
 ];
