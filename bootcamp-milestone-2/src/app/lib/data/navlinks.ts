@@ -51,4 +51,10 @@ export const navlinks: NavLink[] = [
     href: "/contact",
     label: "Contact",
   },
+  {
+    iconActive: ChatIconSolid,
+    iconInactive: ChatIconOutline,
+    href: "/blog",
+    label: "Blog",
+  },
 ];
