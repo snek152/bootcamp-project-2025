@@ -1,11 +1,21 @@
 import Image from "next/image";
-import { Project as ProjectT } from "../data/projects";
 import { ArrowUpRightIcon } from "@heroicons/react/16/solid";
 import React from "react";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import * as motion from "motion/react-m";
 
-const Project = React.memo(({ project }: { project: ProjectT }) => {
+type Project = {
+  title: string;
+  slug: string;
+  subtitle?: string;
+  description: string;
+  image: string;
+  skills: string[];
+  link?: string;
+  github?: string;
+};
+
+const Project = React.memo(({ project }: { project: Project }) => {
   return (
     <section
       style={{ willChange: "transform, opacity" }}
@@ -52,10 +62,9 @@ const Project = React.memo(({ project }: { project: ProjectT }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <Image
+        <img
           src={project.image}
           alt={project.title}
-          placeholder="blur"
           className="object-cover object-top opacity-70 w-full h-48 lg:h-64 group-hover/project:opacity-90 transition-opacity duration-300"
         />
       </motion.div>
