@@ -24,8 +24,16 @@ export default async function BlogList() {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6 text-white">Blog</h1>
-      {blogs.map((blog) => (
-        <BlogPreview key={blog.slug} {...blog} />
+      {blogs.map((blog: any) => (
+        <BlogPreview
+          key={blog.slug}
+          title={blog.title}
+          date={blog.date}
+          description={blog.description}
+          image={blog.image}
+          imageAlt={blog.image_alt}
+          slug={blog.slug}
+        />
       ))}
     </div>
   );
