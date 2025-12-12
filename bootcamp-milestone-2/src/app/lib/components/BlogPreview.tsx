@@ -22,10 +22,7 @@ export default function BlogPreview({
       />
       <div className="flex-1">
         <h2 className="m-0 mb-2 text-xl font-semibold text-white">{title}</h2>
-        <time
-          dateTime={typeof date === "string" ? date : date.toISOString()}
-          className="block text-gray-400 text-sm mb-2"
-        >
+        <time dateTime={date} className="block text-gray-400 text-sm mb-2">
           {new Date(date).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
