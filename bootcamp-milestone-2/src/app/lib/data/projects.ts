@@ -1,11 +1,11 @@
-import drama from "@/public/projects/drama.jpg";
-import sra from "@/public/projects/sranew.jpg";
-import genalt from "@/public/projects/genaltnew.jpg";
-import floodsafe from "@/public/projects/floodsafe.jpg";
-import steamforce from "@/public/projects/steamforce.jpg";
-import proco from "@/public/projects/proco.jpg";
-import euclidlearn from "@/public/projects/euclidlearn.jpg";
-import swordselection from "@/public/projects/swordselection.png";
+import drama from "../../../../public/projects/drama.jpg";
+import sra from "../../../../public/projects/sranew.jpg";
+import genalt from "../../../../public/projects/genaltnew.jpg";
+import floodsafe from "../../../../public/projects/floodsafe.jpg";
+import steamforce from "../../../../public/projects/steamforce.jpg";
+import proco from "../../../../public/projects/proco.jpg";
+import euclidlearn from "../../../../public/projects/euclidlearn.jpg";
+import swordselection from "../../../../public/projects/swordselection.jpg";
 import { StaticImageData } from "next/image";
 
 export type Project = {
