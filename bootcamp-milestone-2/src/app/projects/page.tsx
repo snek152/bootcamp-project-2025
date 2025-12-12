@@ -14,8 +14,18 @@ async function getProjects() {
   await connectDB();
 
   try {
-    const projects = await ProjectSchema.find().lean().orFail();
-    return projects;
+    const projects: any = await ProjectSchema.find().lean().orFail();
+    // Map to ensure proper typing and remove MongoDB-specific fields
+    return projects.map((project: any) => ({
+      title: project.title,
+      slug: project.slug,
+      subtitle: project.subtitle,
+      description: project.description,
+      image: project.image,
+      skills: project.skills,
+      link: project.link,
+      github: project.github,
+    }));
   } catch (err) {
     return [];
   }
