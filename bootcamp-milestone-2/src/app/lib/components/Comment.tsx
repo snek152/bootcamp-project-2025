@@ -1,11 +1,20 @@
 import { IComment } from "@/database/blogSchema";
 
 type CommentProps = {
-  comment: IComment;
+  comment: {
+    user: string;
+    comment: string;
+    time: Date | string;
+  };
 };
 
-function parseCommentTime(time: Date): string {
+function parseCommentTime(time: Date | string): string {
   const date = new Date(time);
+
+  // Check if date is valid
+  if (isNaN(date.getTime())) {
+    return "Invalid date";
+  }
   const months = [
     "January",
     "February",

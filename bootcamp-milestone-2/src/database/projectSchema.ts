@@ -1,5 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 
+// typescript type for comments
+export type IComment = {
+  user: string;
+  comment: string;
+  time: Date;
+};
+
 // typescript type
 type Project = {
   title: string;
@@ -10,6 +17,7 @@ type Project = {
   skills: string[];
   link?: string;
   github?: string;
+  comments: IComment[];
 };
 
 // mongoose schema
@@ -22,6 +30,13 @@ const projectSchema = new Schema<Project>({
   skills: { type: [String], required: true },
   link: { type: String, required: false },
   github: { type: String, required: false },
+  comments: [
+    {
+      user: { type: String, required: true },
+      comment: { type: String, required: true },
+      time: { type: Date, required: true, default: new Date() },
+    },
+  ],
 });
 
 // defining the collection and model

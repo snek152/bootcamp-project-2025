@@ -14,18 +14,8 @@ async function getProjects() {
   await connectDB();
 
   try {
-    const projects = await ProjectSchema.find().orFail();
-    // Convert MongoDB documents to plain objects
-    return projects.map((project) => ({
-      title: project.title,
-      slug: project.slug,
-      subtitle: project.subtitle,
-      description: project.description,
-      image: project.image,
-      skills: project.skills,
-      link: project.link,
-      github: project.github,
-    }));
+    const projects = await ProjectSchema.find().lean().orFail();
+    return projects;
   } catch (err) {
     return [];
   }

@@ -3,14 +3,14 @@ import projectSchema from "@/database/projectSchema";
 import connectDB from "@/database/db";
 
 type IParams = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export async function GET(req: NextRequest, { params }: IParams) {
   await connectDB();
-  const { slug } = params;
+  const { slug } = await params;
 
   try {
     const project = await projectSchema.findOne({ slug }).orFail();

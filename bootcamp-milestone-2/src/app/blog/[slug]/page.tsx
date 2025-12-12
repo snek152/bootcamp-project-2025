@@ -1,26 +1,39 @@
 import Link from "next/link";
-import Comment from "@/app/lib/components/Comment";
 import connectDB from "@/database/db";
 import BlogSchema from "@/database/blogSchema";
+import BlogComments from "@/app/lib/components/BlogComments";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 async function getBlog(slug: string) {
   await connectDB();
 
   try {
-    const blog = await BlogSchema.findOne({ slug }).orFail();
-    return blog;
+    const blog = await BlogSchema.findOne({ slug }).lean().orFail();
+
+    // Serialize comments to remove _id and convert dates
+    const serializedComments = (blog.comments || []).map((comment: any) => ({
+      user: comment.user,
+      comment: comment.comment,
+      time:
+        comment.time instanceof Date
+          ? comment.time.toISOString()
+          : comment.time,
+    }));
+
+    return {
+      ...blog,
+      comments: serializedComments,
+    };
   } catch (err) {
     console.log(`error: ${err}`);
     return null;
   }
 }
-
 export default async function BlogPost({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
   const blog = await getBlog(slug);
 
   if (!blog) {
@@ -52,7 +65,7 @@ export default async function BlogPost({ params }: Props) {
       <h1 className="text-4xl font-bold mb-4 text-white">{blog.title}</h1>
 
       <time
-        dateTime={blog.date.toString()}
+        dateTime={new Date(blog.date).toISOString()}
         className="block text-gray-400 text-sm mb-6"
       >
         Posted on{" "}
@@ -77,22 +90,7 @@ export default async function BlogPost({ params }: Props) {
         <div className="text-gray-300 leading-relaxed">{blog.content}</div>
       </div>
 
-      <div className="border-t border-gray-700 pt-6 mt-8">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          Comments ({blog.comments?.length || 0})
-        </h2>
-        {blog.comments && blog.comments.length > 0 ? (
-          <div>
-            {blog.comments.map((comment: any, index: number) => (
-              <Comment key={index} comment={comment} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-gray-400">
-            No comments yet. Be the first to comment!
-          </p>
-        )}
-      </div>
+      <BlogComments blogSlug={slug} initialComments={blog.comments || []} />
     </article>
   );
 }
