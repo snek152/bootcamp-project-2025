@@ -12,7 +12,7 @@ async function getProject(slug: string) {
   await connectDB();
 
   try {
-    const project = await ProjectSchema.findOne({ slug }).lean().orFail();
+    const project: any = await ProjectSchema.findOne({ slug }).lean().orFail();
 
     // Serialize comments to remove _id and convert dates
     const serializedComments = (project.comments || []).map((comment: any) => ({

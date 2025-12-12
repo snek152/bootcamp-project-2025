@@ -11,7 +11,7 @@ async function getBlog(slug: string) {
   await connectDB();
 
   try {
-    const blog = await BlogSchema.findOne({ slug }).lean().orFail();
+    const blog: any = await BlogSchema.findOne({ slug }).lean().orFail();
 
     // Serialize comments to remove _id and convert dates
     const serializedComments = (blog.comments || []).map((comment: any) => ({
