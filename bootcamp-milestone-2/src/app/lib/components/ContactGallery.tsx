@@ -2,35 +2,35 @@
 
 import * as motion from "motion/react-m";
 import Image from "next/image";
-import musicprod from "@/public/music_prod.jpg";
-import photography from "@/public/photography.jpeg";
-import lenaea from "@/public/lenaea.jpg";
-import webdev from "@/public/webdev.jpg";
+// import musicprod from "@/public/music_prod.jpg";
+// import photography from "@/public/photography.jpeg";
+// import lenaea from "@/public/lenaea.jpg";
+// import webdev from "@/public/webdev.jpg";
 
-const photos = [
-  {
-    src: musicprod,
-    caption: "Putting together a new beat",
-  },
-  {
-    src: photography,
-    caption: "Prepping my camera for a shoot in NYC",
-  },
-  {
-    src: webdev,
-    caption: "Presenting about Git at Web Dev club",
-  },
-  {
-    src: lenaea,
-    caption: "Performing onstage at a theatre festival",
-  },
-];
+// const photos = [
+//   {
+//     src: musicprod,
+//     caption: "Putting together a new beat",
+//   },
+//   {
+//     src: photography,
+//     caption: "Prepping my camera for a shoot in NYC",
+//   },
+//   {
+//     src: webdev,
+//     caption: "Presenting about Git at Web Dev club",
+//   },
+//   {
+//     src: lenaea,
+//     caption: "Performing onstage at a theatre festival",
+//   },
+// ];
 
 export default function ContactGallery() {
   return (
     <div className="lg:max-h-screen w-full px-4 lg:px-4 pt-2 pb-5 lg:py-20 [content-visibility:auto] [contain-intrinsic-size:800px]">
       <div className="grid lg:grid-cols-2 lg:grid-rows-2 grid-cols-2 grid-rows-2 gap-6 h-full">
-        {photos.map((photo, idx) => (
+        {/* {photos.map((photo, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 0, filter: "blur(3px)" }}
@@ -58,7 +58,7 @@ export default function ContactGallery() {
               <p className="text-surface text-sm font-ibm">{photo.caption}</p>
             </div>
           </motion.div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
