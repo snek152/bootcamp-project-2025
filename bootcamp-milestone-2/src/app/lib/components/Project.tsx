@@ -6,7 +6,7 @@ import * as motion from "motion/react-m";
 
 type Project = {
   title: string;
-  slug: string;
+  slug?: string;
   subtitle?: string;
   description: string;
   image: string;

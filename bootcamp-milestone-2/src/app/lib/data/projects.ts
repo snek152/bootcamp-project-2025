@@ -10,9 +10,10 @@ import { StaticImageData } from "next/image";
 
 export type Project = {
   title: string;
+  slug?: string;
   subtitle?: string;
   description: string;
-  image: StaticImageData | string; // Use StaticImageData for local images or string for remote URLs
+  image: StaticImageData | string; // Use StaticImageData for local images or remote URLs
   skills: string[];
   link?: string;
   github?: string;
