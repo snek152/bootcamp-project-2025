@@ -1,19 +1,19 @@
-import drama from "../../../../public/projects/drama.jpg";
-import sra from "../../../../public/projects/sranew.jpg";
-import genalt from "../../../../public/projects/genaltnew.jpg";
-import floodsafe from "../../../../public/projects/floodsafe.jpg";
-import steamforce from "../../../../public/projects/steamforce.jpg";
-import proco from "../../../../public/projects/proco.jpg";
-import euclidlearn from "../../../../public/projects/euclidlearn.jpg";
-import swordselection from "../../../../public/projects/swordselection.jpg";
-import { StaticImageData } from "next/image";
+// import drama from "../../../../public/projects/drama.jpg";
+// import sra from "../../../../public/projects/sranew.jpg";
+// import genalt from "../../../../public/projects/genaltnew.jpg";
+// import floodsafe from "../../../../public/projects/floodsafe.jpg";
+// import steamforce from "../../../../public/projects/steamforce.jpg";
+// import proco from "../../../../public/projects/proco.jpg";
+// import euclidlearn from "../../../../public/projects/euclidlearn.jpg";
+// import swordselection from "../../../../public/projects/swordselection.jpg";
+// import { StaticImageData } from "next/image";
 
 export type Project = {
   title: string;
   slug?: string;
   subtitle?: string;
   description: string;
-  image: StaticImageData | string; // Use StaticImageData for local images or remote URLs
+  image: string; // Use StaticImageData for local images or remote URLs
   skills: string[];
   link?: string;
   github?: string;
@@ -27,7 +27,7 @@ export const projects: Project[] = [
       "Developed a neural network for segmenting diffuse gliomas in medical images under data and processing constraints, achieving 71.58% accuracy. Presented at UCSB and published in the Journal of Student Research.",
     link: "https://www.jsr.org/hs/index.php/path/article/view/6376",
     github: "https://github.com/snek152/GU_Net_Glioma_Segmentation_SRA",
-    image: sra,
+    image: "",
     skills: [
       "pytorch neural network",
       "medical imaging",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     subtitle: "November 2021 - April 2022",
     description:
       "Built an offline-capable STEAM learning app for underprivileged youth, focusing on accessibility. Won Honorable Mention at the 2022 Synopsys Science Fair.",
-    image: steamforce,
+    image: "",
     skills: [
       "next.js & firebase",
       "accessibility & ux design",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     subtitle: "April 2024 - October 2024",
     description:
       "Architected a custom design and responsive website for Lynbrook Drama to showcase productions, events, and crew info. Implemented a custom GitHub-based CMS for seamless updates.",
-    image: drama,
+    image: "",
     skills: [
       "next.js & tailwindcss",
       "client collaboration",
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     subtitle: "January 2023 - March 2023",
     description:
       "Assembled a dataset from scratch and constructed a neural network for atmospheric river prediction, achieving over 95% accuracy. Deployed the model with FastAPI and produced a web app for real-time results.",
-    image: floodsafe,
+    image: "",
     skills: [
       "pytorch computer vision",
       "full-stack web development",
@@ -89,14 +89,14 @@ export const projects: Project[] = [
       "code collaboration",
       "ec2 server hosting",
     ],
-    image: proco,
+    image: "",
   },
   {
     title: "GenAlt: AI-Powered Web Accessibility",
     subtitle: "November 2022 - April 2023",
     description:
       "Collaborated on an AI prototype improving web accessibility for the visually impaired. Received the Horn Entrepreneurship through Equity Award at the Diamond Challenge 2023.",
-    image: genalt,
+    image: "",
     skills: ["ml model deployment", "business development", "public speaking"],
     link: "/projects/genalt.jpg",
   },
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     subtitle: "November 2023 - February 2024",
     description:
       "Designed and developed a custom website for EuclidLearn, a consulting company focused on high school test prep, emphasizing user experience and responsive design.",
-    image: euclidlearn,
+    image: "",
     skills: [
       "next.js & tailwindcss",
       "tailored design",
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     subtitle: "June 2021 - October 2021",
     description:
       "Developed a Minecraft mod introducing medieval-themed swords with unique abilities, enhancing gameplay with custom animations and mechanics. Promoted extensively on relevant forums and websites, resulting in 2.2k+ downloads.",
-    image: swordselection,
+    image: "",
     skills: ["java & gradle", "documentation & promotion", "minecraft modding"],
     github: "https://github.com/snek152/SwordSelection",
     link: "https://swordselection.snehilkakani.me",
